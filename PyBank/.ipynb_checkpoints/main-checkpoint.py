@@ -6,10 +6,9 @@
 - The greates decrease in profits (date and amount) over the entire period'''
 
 import csv
-import os
 
 # Define the path to your CSV file
-csv_file_path = 'PyBank/Resources/budget_data.csv'
+csv_file_path = os.path.join('Resources', 'budget_data.csv')
 
 # Initialize counters and lists
 total_months = 0
@@ -58,18 +57,9 @@ min_change = min(monthly_changes)
 max_change_month = months[monthly_changes.index(max_change)]
 min_change_month = months[monthly_changes.index(min_change)]
 
-
-print("Financial Analysis")
-print()
-print("-----------------------------------------")
-print()
 print(f"Total number of months: {total_months}")
-print()
-print(f"Total Profit/Losses: ${total_profit_losses}")
-print()
-print(f"Average Change in Profit/Losses: ${average_change:.2f}")
-print()
+print(f"Total Profit/Losses: {total_profit_losses}")
+print(f"Average Change in Profit/Losses: {average_change:.2f}")
 print(f"Greatest Increase in Profits: {max_change_month} (${max_change})")
-print()
 print(f"Greatest Decrease in Profits: {min_change_month} (${min_change})")
 
