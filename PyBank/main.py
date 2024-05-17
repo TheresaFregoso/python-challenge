@@ -10,6 +10,12 @@ import os
 
 # Define the path to your CSV file
 csv_file_path = 'PyBank/Resources/budget_data.csv'
+Output_data_path = 'PyBank/analysis/finacial_analysis.txt'
+
+# Check if the output file already exists and delete it if it does
+if os.path.exists(Output_data_path):
+    os.remove(Output_data_path)
+
 
 # Initialize counters and lists
 total_months = 0
@@ -59,17 +65,18 @@ max_change_month = months[monthly_changes.index(max_change)]
 min_change_month = months[monthly_changes.index(min_change)]
 
 
-print("Financial Analysis")
-print()
-print("-----------------------------------------")
-print()
-print(f"Total number of months: {total_months}")
-print()
-print(f"Total Profit/Losses: ${total_profit_losses}")
-print()
-print(f"Average Change in Profit/Losses: ${average_change:.2f}")
-print()
-print(f"Greatest Increase in Profits: {max_change_month} (${max_change})")
-print()
-print(f"Greatest Decrease in Profits: {min_change_month} (${min_change})")
+# Prepare the output
+output = (
+    f"Total number of months: {total_months}\n\n"
+    f"Total Profit/Losses: ${total_profit_losses}\n\n"
+    f"Average Change in Profit/Losses: ${average_change:.2f}\n\n"
+    f"Greatest Increase in Profits: {max_change_month} (${max_change})\n\n"
+    f"Greatest Decrease in Profits: {min_change_month} (${min_change})\n"
+)
 
+# Write the output to a text file
+with open(Output_data_path, mode='w') as file:
+    file.write(output)
+
+# Print the output to the console
+print(output)
