@@ -9,8 +9,8 @@ import csv
 import os
 
 # Define the path to your CSV file
-csv_file_path = 'PyPoll/Resources/election_data.csv'
-output_data_path = 'PyPoll/analysis/election_results.txt'
+csv_file_path = os.path.join('PyPoll','Resources','election_data.csv')
+output_data_path = os.path.join('PyPoll','analysis','election_results.txt')
 
 # Check if the output file already exists and delete it if it does
 if os.path.exists(output_data_path):

@@ -9,8 +9,8 @@ import csv
 import os
 
 # Define the path to your CSV file
-csv_file_path = 'PyBank/Resources/budget_data.csv'
-Output_data_path = 'PyBank/analysis/finacial_analysis.txt'
+csv_file_path = os.path.join('PyBank','Resources','budget_data.csv')
+Output_data_path = os.path.join('PyBank','analysis','finacial_analysis.txt')
 
 # Check if the output file already exists and delete it if it does
 if os.path.exists(Output_data_path):
